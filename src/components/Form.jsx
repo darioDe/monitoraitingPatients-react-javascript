@@ -3,21 +3,21 @@ import Error from './Error';
 
 const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
   
-  const [nombre, setNombre] = useState("");
-  const [propietario, setPropietario] = useState("");
+  const [name, setName] = useState("")
+  const [doctor, setDoctor] = useState("");
   const [email, setEmail] = useState("");
-  const [alta, setAlta] = useState("");
-  const [sintomas, setSintomas] = useState("");
+  const [discharge, setDischarge] = useState("");
+  const [surgery, SetSurgery] = useState("");
 
   const [error, setError] = useState(false);
   
   useEffect(() => {
     if ( Object.keys(info).length > 0 ){
-      setNombre(info.nombre);
-      setPropietario(info.propietario);
+      setName(info.name);
+      setDoctor(info.doctor);
       setEmail(info.email);
-      setAlta(info.alta);
-      setSintomas(info.sintomas);
+      setDischarge(info.discharge);
+      SetSurgery(info.surgery);
     }
   }, [info])
   
@@ -33,7 +33,7 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
     e.preventDefault();
 
     // VALIDATE FORM 
-    if([ nombre, propietario, email, alta, sintomas].includes('') ) {
+    if([ name, doctor, email, discharge, surgery].includes('') ) {
       console.log("Hay al menos un campo vacío");
       setError(true);
       return;
@@ -43,11 +43,11 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
     
     // PATIENT OBJECT
     const patientObject = {
-      nombre,
-      propietario,
+      name,
+      doctor,
       email,
-      alta,
-      sintomas,
+      discharge,
+      surgery,
     };
 
     if (info.id) {
@@ -67,25 +67,25 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
 
 
     // RESET FORM
-    setNombre("");
-    setPropietario("");
+    setName("");
+    setDoctor("");
     setEmail("");
-    setAlta("");
-    setSintomas("");
+    setDischarge("");
+    SetSurgery("");
   }
 
   return (
     <div className='md:w-1/2 lg:2/5 mx-5'>
-      <h2 className='font-black text-3xl text-center'> Monitoring Patient </h2>
+      <h2 className='font-black text-3xl text-center'> Monitoring Patients </h2>
 
       <p className='text-xl mt-5 text-center mb-10'>
          Add Patient and {""}
-         <span className='text-indigo-600 font-bold'>Manage Them</span>
+         <span className='text-emerald-700 font-bold'>Manage Them</span>
       </p>
 
       <form 
         action="" 
-        className='bg-white shadow-md rounded-lg py-18 px-5 py-10 mb-10' 
+        className='bg-gray-200 shadow-md rounded-lg py-18 px-5 py-10 mb-10' 
         onSubmit={handleSubmit}
       >
         { error && <Error msg={"All tags are required"}/>}
@@ -97,8 +97,8 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
               type="text"
               placeholder='Name'
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
-              value={ nombre }
-              onChange={ (e)=> setNombre(e.target.value) }
+              value={ name }
+              onChange={ (e)=> setName(e.target.value) }
 
             />
         </div>
@@ -109,8 +109,8 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
               type="text"
               placeholder='Assigned Doctor'
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
-              value={ propietario }
-              onChange={ (e)=> setPropietario(e.target.value) }
+              value={ doctor }
+              onChange={ (e)=> setDoctor(e.target.value) }
             />
         </div>
         <div className='mb-5'>
@@ -118,7 +118,7 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
             <input
               id='email' 
               type="email"
-              placeholder='email de contacto'
+              placeholder='Contact E-mail'
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
               value={ email }
               onChange={ (e)=> setEmail(e.target.value) }
@@ -130,8 +130,8 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
               id='discharge' 
               type="date"
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
-              value={ alta }
-              onChange={ (e)=> setAlta(e.target.value) }
+              value={ discharge }
+              onChange={ (e)=> setDischarge(e.target.value) }
             />
         </div>
         <div className='mb-5'>
@@ -140,14 +140,14 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
               name="" 
               id="surgery" 
               placeholder='Write the Details'
-              value={ sintomas }
-              onChange={ (e)=> setSintomas(e.target.value) } 
+              value={ surgery }
+              onChange={ (e)=> SetSurgery(e.target.value) } 
             />
         </div>
          
          <input 
           type="submit" 
-          className='bg-indigo-600 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-colors'
+          className='bg-emerald-700 w-full p-3 text-white uppercase font-bold hover:bg-emerald-900 cursor-pointer transition-colors'
           value={ info.id ? 'Edit Patient' : 'Add Patient'}
         />
       </form>

@@ -8,7 +8,7 @@ const List = ({ infoPatient, setInfo, deletePatient }) => {
         <>
         <h2 className='font-black text-3xl text-center'> Patients List </h2>
         <p className='text-xl mt-5 mb-10 text-center'> Manage {" "}
-          <span className='text-indigo-600 font-bold'>Patients and Appointments</span>
+          <span className='text-emerald-700 font-bold'>Patients and Appointments</span>
         </p>
 
         {infoPatient.map( info => (
@@ -24,8 +24,8 @@ const List = ({ infoPatient, setInfo, deletePatient }) => {
         ) : (
          <>
             <h2 className='font-black text-3xl text-center'> No patients </h2>
-            <p className='text-xl mt-5 mb-10 text-center'> Start adding patients {" "}
-              <span className='text-indigo-600 font-bold'>They will be here</span>
+            <p className='text-xl mt-5 mb-10 text-center'> Add Patients {" "}
+              <span className='text-emerald-700 font-bold'>They Will be Here</span>
             </p>
          </> 
         )}

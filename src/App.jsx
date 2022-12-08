@@ -8,6 +8,7 @@ function App() {
   const [infoPatient, setInfoPatient] = useState([]);
   const [info, setInfo] = useState({});
   
+  // GETTING LS
   useEffect (() => {
     const getLS = () => {
       const infoPatientLS = JSON.parse(localStorage.getItem('infoPatient')) ?? [];
@@ -15,6 +16,7 @@ function App() {
       setInfoPatient(infoPatientLS);
     }
 
+    // SETTING LS
     getLS();
   }, [])  
 
@@ -23,6 +25,7 @@ function App() {
   }, [infoPatient])
   
   
+  // FUNCTION TO DELETE INFO PATIENT
   const deletePatient = (id) =>{
 
     const updatePatient = infoPatient.filter( patient => patient.id !== id);
