@@ -7,22 +7,21 @@ function App() {
 
   const [infoPatient, setInfoPatient] = useState([]);
   const [info, setInfo] = useState({});
-
   
-  useEffect(() => {
-    localStorage.setItem("infoPatient", JSON.stringify(infoPatient))
-  }, [infoPatient]);
-  
-  useEffect(() => {
-    
-    const getLS = () =>{
-      const infoPatientLS = JSON.parse(localStorage.getItem("infoPatient")) ?? [];
-      console.log(infoPatientLS);
+  useEffect (() => {
+    const getLS = () => {
+      const infoPatientLS = JSON.parse(localStorage.getItem('infoPatient')) ?? [];
+      console.log(infoPatientLS)
       setInfoPatient(infoPatientLS);
     }
 
     getLS();
-  }, []);
+  }, [])  
+
+  useEffect (() => {
+    localStorage.setItem('infoPatient', JSON.stringify(infoPatient))
+  }, [infoPatient])
+  
   
   const deletePatient = (id) =>{
 
