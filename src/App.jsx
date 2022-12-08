@@ -11,7 +11,7 @@ function App() {
   useEffect (() => {
     const getLS = () => {
       const infoPatientLS = JSON.parse(localStorage.getItem('infoPatient')) ?? [];
-      console.log(infoPatientLS)
+      // console.log(infoPatientLS)CD
       setInfoPatient(infoPatientLS);
     }
 
