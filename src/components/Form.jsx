@@ -80,7 +80,7 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
 
       <p className='text-xl mt-5 text-center mb-10'>
          Add Patient and {""}
-         <span className='text-indigo-600 font-bold'>administralos</span>
+         <span className='text-indigo-600 font-bold'>Manage Them</span>
       </p>
 
       <form 
@@ -91,11 +91,11 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
         { error && <Error msg={"All tags are required"}/>}
 
         <div className='mb-5'>
-            <label className='block text-gray-700 uppercase font-bold' htmlFor="mascota"> Nombre </label>
+            <label className='block text-gray-700 uppercase font-bold' htmlFor="name"> Name </label>
             <input
-              id='mascota' 
+              id='name' 
               type="text"
-              placeholder='nombre'
+              placeholder='Name'
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
               value={ nombre }
               onChange={ (e)=> setNombre(e.target.value) }
@@ -103,11 +103,11 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
             />
         </div>
         <div className='mb-5'>
-            <label className='block text-gray-700 uppercase font-bold' htmlFor="propietario">Prop </label>
+            <label className='block text-gray-700 uppercase font-bold' htmlFor="doctor"> Doctor </label>
             <input
-              id='propietario' 
+              id='doctor' 
               type="text"
-              placeholder='nombre de prop'
+              placeholder='Assigned Doctor'
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
               value={ propietario }
               onChange={ (e)=> setPropietario(e.target.value) }
@@ -125,9 +125,9 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
             />
         </div>
         <div className='mb-5'>
-            <label className='block text-gray-700 uppercase font-bold' htmlFor="alta">Alta </label>
+            <label className='block text-gray-700 uppercase font-bold' htmlFor="discharge"> Dischargin Date </label>
             <input
-              id='alta' 
+              id='discharge' 
               type="date"
               className='border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md'
               value={ alta }
@@ -135,11 +135,11 @@ const Form = ({ infoPatient, setInfoPatient, info, setInfo }) => {
             />
         </div>
         <div className='mb-5'>
-            <label className='block text-gray-700 uppercase font-bold' htmlFor="sintomas">Sintomas </label>
+            <label className='block text-gray-700 uppercase font-bold' htmlFor="surgery"> Surgery & Details </label>
             <textarea 
               name="" 
-              id="sintomas" 
-              placeholder='escribe los sintomas'
+              id="surgery" 
+              placeholder='Write the Details'
               value={ sintomas }
               onChange={ (e)=> setSintomas(e.target.value) } 
             />
